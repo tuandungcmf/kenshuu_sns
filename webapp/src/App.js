@@ -2,9 +2,8 @@ import React from 'react';
 import $ from 'jquery';
 import Messages from './message-list';
 import Input from './input';
-import _map from 'lodash/map';
+import _map from 'lodash/findIndex';
 import io from 'socket.io-client';
-
 import './App.css';
 
 export default class App extends React.Component {
@@ -23,7 +22,8 @@ export default class App extends React.Component {
        console.log(this.state.user)
        this.socket = io('localhost:6969');
        this.socket.on('newMessage', (response) => {this.newMessage(response)}); //lắng nghe khi có tin nhắn mới
-       this.socket.on('loginFail', (response) => {alert('Tên đã có người sử dụng')}); //login fail
+
+       this.socket.on('loginFail', (response) => {alert('Username is used !')}); //login fail
        this.socket.on('loginSuccess', (response) => {this.setState({user: {id: this.socket.id, name: response}})}); //đăng nhập thành công
        this.socket.on('updateUesrList', (response) => {this.setState({userOnline: response})}); //update lại danh sách người dùng online khi có người đăng nhập hoặc đăng xuất
    }
@@ -68,12 +68,11 @@ export default class App extends React.Component {
    render () {
         return (
            <div className="app__content">
-              <h1>chat box</h1>
           {/* kiểm tra xem user đã tồn tại hay chưa, nếu tồn tại thì render form chat, chưa thì render form login */}
               { this.state.user.id && this.state.user.name ?
                 <div className="chat_window">
                     {/* danh sách user online */}
-                    <div className="menu">
+                    <div className="top_menu">
                         <ul className="user">
                         <span className="user-name">{this.state.user.name}</span>
                             <p>Online</p>
