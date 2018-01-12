@@ -6,6 +6,23 @@ body {
   background-color: #edeff2;
   font-family: "Calibri", "Roboto", sans-serif;
 }
+.left{
+  background-color: #000;
+  width: 20%;
+  float: left;
+  bottom: 0;
+  height: 100px;
+  color:#fff;
+}
+.currentRoom{
+  background-color: yellow;
+  width: 20%;
+  float: right;
+  bottom:0;
+  right:0;
+  height: 100px;
+  color:#000;
+}
 
 .chat_window {
   position: absolute;
