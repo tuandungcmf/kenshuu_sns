@@ -5,8 +5,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
-  Navigator,
-  BackAndroid
+  Navigator
 } from 'react-native';
 import {Scene, Reducer, Router, Modal, Actions} from 'react-native-router-flux';
 
@@ -16,15 +15,13 @@ import Login from './Login';
 import Profile from './Profile';
 // import Users from './Users';
 // import ChatRoom from './ChatRoom';
-
 import io from 'socket.io-client/dist/socket.io.js';
 
 var e;
 
 //Login
 const Application = StackNavigator(
-  {Home: { screen: Login },
-   Profile: { screen: Profile }
+  {Home: { screen: Login }
   },
   { navigationOptions: { header: false}
 });

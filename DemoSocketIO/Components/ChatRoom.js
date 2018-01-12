@@ -20,7 +20,7 @@ class ChatRoom extends Component {
   constructor(props) {
     super(props);
 
-    const socketServer = 'http://'+API.serverIP+':4000';
+    const socketServer = 'http://'+API.serverIP+':8000';
 
     const options = {transports: ['websocket'], forceNew: true};
     this.socket = io(socketServer, options);

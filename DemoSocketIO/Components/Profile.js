@@ -17,7 +17,7 @@ export default class Profile extends Component {
   constructor(props){
     super(props);
     e = this;
-    this.socket = io('http://localhost:3000', {jsonp:false});
+    this.socket = io('http://localhost:8000', {jsonp:false});
     this.state ={
       maunen: 'green',
       text: '...'
